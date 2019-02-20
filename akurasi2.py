@@ -68,20 +68,13 @@ next(reader)
 lis1,lis2,lis3,lis4,lis5 = [],[],[],[],[]
 temp = 0
 for d in reader :
-    # if (temp < 40):
     lis1.append((d[0],d[1],d[2],d[3],d[4],d[5],d[6],d[7],d[8]))
-        # temp += 1
         
     lis2.append((d[0],d[1],d[2],d[3],d[4],d[5],d[6],d[7],d[8]))
 
 prob50,probkrng50,lbh50,krng50 = probclass(lis2)
 lis4 = atribut(lis2)
 lis5 = xterhadapc(lis4,lis2)
-print(lis5)
-# print(prob50)
-# print(probkrng50)
-# print(lbh50)
-# print(krng50)
 j = 1
 for roww in lis1:
     l50,k50,hasilpem = 1.0,1.0,1
