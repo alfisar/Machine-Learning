@@ -82,8 +82,6 @@ prob50,probkrng50,lbh50,krng50 = probclass(lis2)
 lis4 = atribut(lis2)
 lis5 = xterhadapc(lis4,lis2)
 
-# print(lis5)
-
 j = 1
 for roww in lis1:
     l50,k50,hasilpem = 1.0,1.0,1
@@ -97,6 +95,7 @@ i=1
 for row in lis3 :
     w.writerow((i,str(row)))
     i+=1
+    
 f.close()
 g.close()
 h.close()
