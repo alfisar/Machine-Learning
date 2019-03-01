@@ -43,18 +43,10 @@ def atribut(lis2):
                     lis4.append(row[i])
     return lis4
 
-def probatribut(roww,i,lis2):
-    temp,j = 0.0,0
-    for row in lis2:
-        if(row[i] == roww[i]):
-            temp += 1
-        j+=1
-    temp = temp / j
-    return temp
 
-def penentuan(l50,k50,hasilpem,lis3):
-    l50 = (l50 * prob50) / hasilpem
-    k50 = (k50 * probkrng50) / hasilpem
+def penentuan(l50,k50,lis3):
+    l50 = (l50 * prob50)
+    k50 = (k50 * probkrng50)
     if (l50 >= k50) :
         lis3.append('>50K')
     else:
@@ -75,17 +67,16 @@ for d in reader :
 prob50,probkrng50,lbh50,krng50 = probclass(lis2)
 lis4 = atribut(lis2)
 lis5 = xterhadapc(lis4,lis2)
+print(lis5)
 j = 1
 for roww in lis1:
-    l50,k50,hasilpem = 1.0,1.0,1
+    l50,k50= 1.0,1.0
     for i in range(1,8):
         for row in lis5 :
            if row[0] == roww[i]:
                l50 = l50 * row[1]
                k50 = k50 * row[2]
-        pem = probatribut(roww,i,lis2)
-        hasilpem = hasilpem * pem
-    lis3 = penentuan(l50,k50,hasilpem,lis3)
+    lis3 = penentuan(l50,k50,lis3)
 
 j,hasil,akurasi = 0,0,0.0
 for ro in lis1 :

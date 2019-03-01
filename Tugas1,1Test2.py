@@ -45,20 +45,11 @@ def atribut(lis2):
                 if (temp != True):
                     lis4.append(row[i])
     return lis4
-# mendapatkan probabilitas dari atribut
-def probatribut(roww,i,lis2):
-    temp,j = 0.0,0
-    for row in lis2:
-        if(row[i] == roww[i]):
-            temp += 1
-        j+=1
-    temp = temp / j
-    return temp
 
 # Mendapatkan hasil akhir masuk ke kelas >50K atau <=50K
-def penentuan(l50,k50,hasilpem,lis3):
-    l50 = (l50 * prob50) / hasilpem
-    k50 = (k50 * probkrng50) / hasilpem
+def penentuan(l50,k50,lis3):
+    l50 = (l50 * prob50)
+    k50 = (k50 * probkrng50)
     if (l50 >= k50) :
         lis3.append('>50K')
     else:
@@ -72,6 +63,11 @@ next(reader)
 g = open("TestsetTugas1ML.csv","r")
 reader1= csv.reader(g)
 next(reader1)
+
+h = open("TebakanTugas1.csv","w")
+w = csv.writer(h)
+w.writerow(('no','Y'))
+
 
 lis1,lis2,lis3,lis4,lis5 = [],[],[],[],[]
 temp = 0
@@ -96,8 +92,11 @@ for roww in lis1:
            if row[0] == roww[i]:
                l50 = l50 * row[1]
                k50 = k50 * row[2]
-        pem = probatribut(roww,i,lis2)
-        hasilpem = hasilpem * pem
-    lis3 = penentuan(l50,k50,hasilpem,lis3)
-
-print(lis3)
+    lis3 = penentuan(l50,k50,lis3)
+i=1
+for row in lis3 :
+    w.writerow((i,str(row)))
+    i+=1
+f.close()
+g.close()
+h.close()
