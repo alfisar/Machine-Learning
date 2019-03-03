@@ -64,9 +64,9 @@ g = open("TestsetTugas1ML.csv","r")
 reader1= csv.reader(g)
 next(reader1)
 
-h = open("TebakanTugas1.csv","w")
+h = open("TebakanTugas1ML.csv","w")
 w = csv.writer(h)
-w.writerow(('No','Class'))
+w.writerow(['Class'])
 
 
 lis1,lis2,lis3,lis4,lis5 = [],[],[],[],[]
@@ -94,7 +94,7 @@ for roww in lis1:
 i=1
 for row in lis3 :
     print(row)
-    w.writerow((i,str(row)))
+    w.writerow([str(row)])
     i+=1
     
 f.close()
